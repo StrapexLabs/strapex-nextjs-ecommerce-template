@@ -23,15 +23,19 @@ const Cart = () => {
     const {
       data: { id },
     } = await axios.post('/api/checkout_sessions', {
-      items: Object.entries(cartDetails).map(([_, { id, quantity }]) => ({
+      items: Object.entries(cartDetails).map(([_, { id, quantity, name, price, currency }]) => ({
         price: id,
         quantity,
+        name,
+        price,
+        currency,
       })),
     });
 
-    // Redirect to checkout
-    const stripe = await getStripe();
-    await stripe.redirectToCheckout({ sessionId: id });
+    // Redirect to  strapex.org/p/{id}
+    console.log('Redirecting to checkout session:', id);
+    const rootUrl = process.env.NODE_ENV === 'production' ? 'https://pay.strapex.org' : 'http://localhost:3001';
+    window.location.href = `${rootUrl}/p/${id}`;
   };
 
   return (
