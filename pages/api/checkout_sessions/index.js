@@ -1,8 +1,9 @@
 import axios from "axios";
+import * as dotenv from "dotenv";
+dotenv.config();
 
-
-const rootUrl = process.env.NODE_ENV === 'production'
-  ? 'http://strapex-api-production.up.railway.app'
+const rootUrl = process.env.ENVIROMENT === 'production'
+  ? 'https://strapex-api-production.up.railway.app'
   : 'http://localhost:3000';
 
 
@@ -12,6 +13,7 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
       console.log(`${rootUrl}/api/sessions`);
+      console.log(process.env.NODE_ENV);
       // Console log the body of the request
       const body = {
         lineItems: req?.body?.items ?? [],
@@ -20,10 +22,11 @@ export default async function handler(req, res) {
         depositAddress: publicKey,
         billing_address_collection: 'required',
       };
+      console.log(JSON.stringify(body))
       
       const {data} = await axios.post(`${rootUrl}/api/sessions`, body);
 
-      console.log(data);
+      //console.log(data);
       res.status(200).json(data);
     } catch (err) {
       console.log(err);
