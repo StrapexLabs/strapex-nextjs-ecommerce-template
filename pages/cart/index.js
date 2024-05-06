@@ -34,7 +34,7 @@ const Cart = () => {
 
     // Redirect to  strapex.org/p/{id}
     console.log('Redirecting to checkout session:', id);
-    const rootUrl = process.env.NODE_ENV === 'production' ? 'https://pay.strapex.org' : 'http://localhost:3001';
+    const rootUrl = process.env.NEXT_PUBLIC_ENVIRONMENT === 'production' ? 'https://pay.strapex.org' : 'http://localhost:3001';
     window.location.href = `${rootUrl}/p/${id}`;
   };
 

@@ -2,7 +2,7 @@ import axios from "axios";
 import * as dotenv from "dotenv";
 dotenv.config();
 
-const rootUrl = process.env.ENVIROMENT === 'production'
+const rootUrl = process.env.ENVIRONMENT === 'production'
   ? 'https://strapex-api-production.up.railway.app'
   : 'http://localhost:3000';
 
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
       console.log(`${rootUrl}/api/sessions`);
-      console.log(process.env.NODE_ENV);
+      console.log(process.env.ENVIRONMENT)
       // Console log the body of the request
       const body = {
         lineItems: req?.body?.items ?? [],
