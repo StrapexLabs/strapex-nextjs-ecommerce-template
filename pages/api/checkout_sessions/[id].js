@@ -1,18 +1,25 @@
-import Stripe from 'stripe';
+import axios from 'axios';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const rootUrl = process.env.NODE_ENV === 'production' ? 'http://strapex-api-production.up.railway.app' : 'http://localhost:3000';
 
 export default async function handler(req, res) {
   const id = req.query.id;
 
   try {
     if (!id.startsWith('cs_')) {
-      throw Error('Incorrect CheckoutSession ID.');
+      throw Error('Session ID is missing.');
     }
-    const checkout_session = await stripe.checkout.sessions.retrieve(id);
 
-    res.status(200).json(checkout_session);
+    // Make a GET request to the Strapex API to retrieve the session data
+    const response = await axios.get(`${rootUrl}/api/sessions/${id}`);
+    const sessionData = response.data;
+    
+    res.status(200).json(sessionData);
   } catch (err) {
-    res.status(500).json({ statusCode: 500, message: err.message });
+    if (err.response && err.response.status === 404) {
+      res.status(404).json({ statusCode: 404, message: 'Session not found' });
+    } else {
+      res.status(500).json({ statusCode: 500, message: err.message });
+    }
   }
 }
