@@ -21,6 +21,7 @@ export default async function handler(req, res) {
         cancelUrl: `${req.headers.origin}/cart`,
         depositAddress: publicKey,
         billing_address_collection: 'required',
+        payment_type: 'onetime',
       };
       console.log(JSON.stringify(body))
       
