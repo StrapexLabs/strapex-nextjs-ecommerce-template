@@ -3,6 +3,20 @@ import { ProductCard } from '@/components/index';
 
 import products from 'products';
 
+let item = {
+  id: 'price_1NyG5TBVp8j6hztqyh4VsGlN',
+  name: 'StarkWolves Limited Edition',
+  description: '30 Units | 100% Cotton | 100% Starknet',
+  price: 29.99,
+  currency: 'STRK',
+  heroImage: '/tshirts/starkwolves.png',
+  images: [
+    '/tshirts/starkwolvesCloseUp.png',
+    '/tshirts/starkwolvesLogo.png',
+  ],
+  quantity: 30,
+};
+
 export default function Home() {
   const [disabled, setDisabled] = useState(false);
 
@@ -12,21 +26,22 @@ export default function Home() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 h-full">
         <div className="col-span-1 h-60 rounded-xl border-2 border-gray-300">
           <div className='flex flex-row h-3/4 p-4 justify-center'>
-            <img src='./tshirts/starkwolves.png' alt='StarkWolves' className='h-auto' />
+            <img src={item.heroImage} alt={item.name} className='h-auto' />
             <div className='flex flex-col justify-between p-2 space-y-2'>
-              <img src='./tshirts/starkwolvesCloseUp.png' alt='StarkWolves Close Up' className='h-1/2 rounded-xl' />
-              <img src='./tshirts/starkwolvesLogo.png' alt='StarkWolves Logo' className='h-1/2 rounded-xl' />
+              {item.images.map((image, index) => (
+                <img key={index} src={image} alt={`${item.name} ${index}`} className='h-1/2 rounded-xl' />
+              ))}
             </div>
           </div>
-          <div class="flex flex-col items-center">
-            <div class="font-bold text-xs">StarkWolves Limited Edition</div>
-            <div className='text-xs'>30 Units | 100% Cotton | 100% Starknet</div>
+          <div className="flex flex-col items-center">
+            <div className="font-bold text-xs">{item.name}</div>
+            <div className='text-xs'>{item.description}</div>
             <div className='flex items-center space-x-2'>
               <div className='flex items-center space-x-1'>
-                <div className='font-bold'>30</div>
-                <img src='./tokens/strk.png' alt='Stark' className='h-4' />
+                <div className='font-bold'>{item.quantity}</div>
+                <img src='./tokens/strk.png' alt={item.currency} className='h-4' />
               </div>
-              <div className='text-xs text-gray-500'>≈29.99$</div>
+              <div className='text-xs text-gray-500'>≈{item.price}$</div>
             </div>
           </div>
         </div>
@@ -49,7 +64,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="col-span-1 sm:col-span-2 bg-orange-500 h-60 rounded-xl">
+        <div className="col-span-1 sm:col-span-2 bg-orange-500 sm:h-60 rounded-xl">
           <div className='flex flex-col sm:flex-row h-full'>
             <div className='flex flex-col  sm:justify-between text-white py-8 pl-8'>
               <h1 className='text-2xl font-bold'> Are you an Artist?</h1>
