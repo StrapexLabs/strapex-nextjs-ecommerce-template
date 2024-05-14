@@ -69,7 +69,7 @@ export default function Home() {
         </div>
         <div className="col-span-1 bg-black h-60 rounded-xl">
           <div className='flex flex-col h-full text-white p-4 justify-between items-center'>
-            <h1 className='text-2xl font-bold '> Pay with
+            <h1 className='text-2xl font-bold text-center'> Pay with
             <span className='text-orange-400'> ANY </span>  coin</h1>
             <h1 className='text-2xl font-bold'> 
             <span className='text-green-400'> FREE </span>
