@@ -9,21 +9,23 @@ import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
 
 import products from 'products';
 
-const Product = props => {
+const Product = (props) => {
   const router = useRouter();
   const { cartCount, addItem } = useShoppingCart();
   const [qty, setQty] = useState(1);
   const [adding, setAdding] = useState(false);
+  const [selectedSize, setSelectedSize] = useState(props.sizes?.[0] || '');
 
   const toastId = useRef();
   const firstRun = useRef(true);
 
   const handleOnAddToCart = () => {
     setAdding(true);
+    console.log('Adding', qty, props.name, selectedSize);
     toastId.current = toast.loading(
       `Adding ${qty} item${qty > 1 ? 's' : ''}...`
     );
-    addItem(props, qty);
+    addItem({ ...props, size: selectedSize }, qty, selectedSize);
   };
 
   useEffect(() => {
@@ -33,7 +35,7 @@ const Product = props => {
     }
 
     setAdding(false);
-    toast.success(`${qty} ${props.name} added`, {
+    toast.success(`${qty} ${props.name} (${selectedSize}) added`, {
       id: toastId.current,
     });
     setQty(1);
@@ -80,23 +82,47 @@ const Product = props => {
             </div>
 
             <div className="mt-4 border-t pt-4">
+              {/* Size Selection */}
+              {props.sizes && (
+                <div className="mt-4">
+                  <label htmlFor="size" className="block text-sm font-medium text-gray-700">
+                    Size
+                  </label>
+                  <select
+                    id="size"
+                    name="size"
+                    className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                    value={selectedSize}
+                    onChange={(e) => setSelectedSize(e.target.value)}
+                  >
+                    {props.sizes.map((size) => (
+                      <option key={size} value={size}>
+                        {size}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
               {/* Quantity */}
-              <p className="text-gray-500">Quantity:</p>
-              <div className="mt-1 flex items-center space-x-3">
-                <button
-                  onClick={() => setQty(prev => prev - 1)}
-                  disabled={qty <= 1}
-                  className="disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-current hover:bg-rose-100 hover:text-rose-500 rounded-md p-1"
-                >
-                  <MinusSmIcon className="w-6 h-6 flex-shrink-0" />
-                </button>
-                <p className="font-semibold text-xl">{qty}</p>
-                <button
-                  onClick={() => setQty(prev => prev + 1)}
-                  className="hover:bg-green-100 hover:text-green-500 rounded-md p-1"
-                >
-                  <PlusSmIcon className="w-6 h-6 flex-shrink-0 " />
-                </button>
+              <div className="mt-4">
+                <p className="text-gray-500">Quantity:</p>
+                <div className="mt-1 flex items-center space-x-3">
+                  <button
+                    onClick={() => setQty((prev) => prev - 1)}
+                    disabled={qty <= 1}
+                    className="disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-current hover:bg-rose-100 hover:text-rose-500 rounded-md p-1"
+                  >
+                    <MinusSmIcon className="w-6 h-6 flex-shrink-0" />
+                  </button>
+                  <p className="font-semibold text-xl">{qty}</p>
+                  <button
+                    onClick={() => setQty((prev) => prev + 1)}
+                    className="hover:bg-green-100 hover:text-green-500 rounded-md p-1"
+                  >
+                    <PlusSmIcon className="w-6 h-6 flex-shrink-0 " />
+                  </button>
+                </div>
               </div>
 
               {/* Add to cart button */}

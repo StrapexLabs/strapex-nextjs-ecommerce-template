@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { ProductCard } from '@/components/index';
+import Link from 'next/link';
 
 import products from 'products';
 
 let item = {
-  id: 'price_1NyG5TBVp8j6hztqyh4VsGlN',
+  id: 'starkwolves_312',
   name: 'StarkWolves Limited Edition',
   description: '30 Units | 100% Cotton | 100% Starknet',
   price: 29.99,
@@ -24,6 +25,7 @@ export default function Home() {
     <div className="container xl:max-w-screen-xl mx-auto py-8 px-8 sm:px-32">
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 h-full">
+      <Link href={`/products/${item.id}`}>
         <div className="col-span-1 h-60 rounded-xl border-2 border-gray-300">
           <div className='flex flex-row h-3/4 p-4 justify-center'>
             <img src={item.heroImage} alt={item.name} className='h-auto' />
@@ -45,6 +47,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </Link>
         <div className="col-span-1 sm:col-span-2 bg-blue-500 sm:h-60 rounded-xl">
           <div className='flex flex-col sm:flex-row h-full'>
 

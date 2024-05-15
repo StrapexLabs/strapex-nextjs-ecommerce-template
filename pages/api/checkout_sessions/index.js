@@ -7,7 +7,7 @@ const rootUrl = process.env.ENVIRONMENT === 'production'
   : 'http://localhost:3000';
 
 
-let publicKey = "0x4a5fd52fa3eff240f6c977e44d025224af0da3aeaef04b99cafa2b1af9d7d66"
+let publicKey = "0x6753356a19245c2cb0eec0cbf2900901ddf9e6bf2185cb32e2687cc6815f92"
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
         successUrl: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
         cancelUrl: `${req.headers.origin}/cart`,
         depositAddress: publicKey,
-        billing_address_collection: 'required',
+        shipping_address_collection: 'required',
         payment_type: 'onetime',
       };
       console.log(JSON.stringify(body))

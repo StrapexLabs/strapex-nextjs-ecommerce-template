@@ -23,12 +23,13 @@ const Cart = () => {
     const {
       data: { id },
     } = await axios.post('/api/checkout_sessions', {
-      items: Object.entries(cartDetails).map(([_, { id, quantity, name, price, currency }]) => ({
+      items: Object.entries(cartDetails).map(([_, { id, quantity, name, price, currency, size }]) => ({
         price: id,
         quantity,
         name,
         price,
         currency,
+        size,
       })),
     });
 
@@ -44,8 +45,7 @@ const Cart = () => {
         <title>My Shopping Cart</title>
       </Head>
       <div className="container xl:max-w-screen-xl mx-auto py-8 px-4 sm:px-6">
-
-      {cartCount > 0 ? (
+        {cartCount > 0 ? (
           <div className="mt-8">
             {Object.entries(cartDetails).map(([key, product]) => (
               <div
@@ -63,9 +63,14 @@ const Cart = () => {
                         objectFit="contain"
                       />
                     </div>
-                    <p className="font-semibold text-lg sm:text-xl group-hover:underline">
-                      {product.name}
-                    </p>
+                    <div>
+                      <p className="font-semibold text-lg sm:text-xl group-hover:underline">
+                        {product.name}
+                      </p>
+                      {product.size && (
+                        <p className="text-gray-500">Size: {product.size}</p>
+                      )}
+                    </div>
                   </a>
                 </Link>
 
@@ -74,7 +79,7 @@ const Cart = () => {
                   {/* Quantity */}
                   <div className="flex items-center space-x-3">
                     <button
-                      onClick={() => removeItem(product)}
+                      onClick={() => removeItem(product, 1, product.size)}
                       disabled={product?.quantity <= 1}
                       className="disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-current hover:bg-rose-100 hover:text-rose-500 rounded-md p-2"
                     >
@@ -82,7 +87,7 @@ const Cart = () => {
                     </button>
                     <p className="font-semibold text-xl">{product.quantity}</p>
                     <button
-                      onClick={() => addItem(product)}
+                      onClick={() => addItem(product, 1, product.size)}
                       className="hover:bg-green-100 hover:text-green-500 rounded-md p-2"
                     >
                       <PlusSmIcon className="w-6 h-6 flex-shrink-0" />
@@ -97,7 +102,7 @@ const Cart = () => {
 
                   {/* Remove item */}
                   <button
-                    onClick={() => removeItem(product, product.quantity)}
+                    onClick={() => removeItem(product, product.quantity, product.size)}
                     className="ml-4 hover:text-rose-500"
                   >
                     <XCircleIcon className="w-6 h-6 flex-shrink-0 opacity-50 hover:opacity-100 transition-opacity" />
