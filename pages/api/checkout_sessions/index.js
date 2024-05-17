@@ -3,7 +3,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 const rootUrl = process.env.ENVIRONMENT === 'production'
-  ? 'https://strapex-api-production.up.railway.app'
+  ? 'https://api.strapex.org'
   : 'http://localhost:3000';
 
 

@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as dotenv from "dotenv";
 dotenv.config();
 
-const rootUrl = process.env.ENVIRONMENT === 'production' ? 'https://strapex-api-production.up.railway.app' : 'http://localhost:3000';
+const rootUrl = process.env.ENVIRONMENT === 'production' ? 'https://api.strapex.org' : 'http://localhost:3000';
 
 export default async function handler(req, res) {
   const id = req.query.id;
