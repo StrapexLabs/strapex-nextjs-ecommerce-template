@@ -4,19 +4,8 @@ import Link from 'next/link';
 
 import products from 'products';
 
-let item = {
-  id: 'starkwolves_312',
-  name: 'StarkWolves Limited Edition',
-  description: '30 Units | 100% Cotton | 100% Starknet',
-  price: 29.99,
-  currency: 'STRK',
-  heroImage: '/tshirts/starkwolves.png',
-  images: [
-    '/tshirts/starkwolvesCloseUp.png',
-    '/tshirts/starkwolvesLogo.png',
-  ],
-  quantity: 30,
-};
+// Fetch the specific item from products array
+const item = products.find(product => product.id === 'starkwolves_312');
 
 export default function Home() {
   const [disabled, setDisabled] = useState(false);
@@ -28,7 +17,7 @@ export default function Home() {
       <Link href={`/products/${item.id}`}>
         <div className="col-span-1 h-60 rounded-xl border-2 border-gray-300">
           <div className='flex flex-row h-3/4 p-4 justify-center'>
-            <img src={item.heroImage} alt={item.name} className='h-auto' />
+            <img src={item.image} alt={item.name} className='h-auto' />
             <div className='flex flex-col justify-between p-2 space-y-2'>
               {item.images.map((image, index) => (
                 <img key={index} src={image} alt={`${item.name} ${index}`} className='h-1/2 rounded-xl' />

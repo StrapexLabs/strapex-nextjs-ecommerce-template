@@ -14,8 +14,9 @@ const Footer = () => (
         by Strapex Team
       </a>
     </p>
+    <a href="mailto:contact@starknetstore.com" className="text-gray-500 hover:text-current">contact@starknetstore.com</a>
+
     <p className="text-gray-500 mt-4">&copy; StarknetStore 2024</p>
-    <p className="text-gray-500 mt-2">Contact us at: <a href="mailto:contact@starknetstore.com" className="text-gray-500 hover:text-current">contact@starknetstore.com</a></p>
   </footer>
 );
 

@@ -10,6 +10,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 bg-white z-10 shadow">
       <div className="container xl:max-w-screen-xl mx-auto p-6 sm:px-32 flex justify-between">
+        <div className='invisible'>Stark</div>
         <Logo />
         <Link href="/cart">
           <a className="flex items-center space-x-1 text-gray-700 hover:text-gray-900">
