@@ -78,9 +78,7 @@ export default function Home() {
           <div className='flex flex-col h-full text-white p-4 justify-between items-center'>
             <h1 className='text-2xl font-bold text-center'> Pay with
             <span className='text-orange-400'> ANY </span>  coin</h1>
-            <h1 className='text-2xl font-bold'> 
-            <span className='text-green-400'> FREE </span>
-            gas fees </h1>
+            
             <div className='flex items-center space-x-2'>
               <img src='./tokens/eth.png' alt='Ethereum' className='h-6 sm:h-8' />
               <img src='./tokens/usdt.png' alt='USDT' className='h-6 sm:h-8' />

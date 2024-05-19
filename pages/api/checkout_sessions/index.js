@@ -7,7 +7,7 @@ const rootUrl = process.env.ENVIRONMENT === 'production'
   : 'http://localhost:3000';
 
 
-let publicKey = "0x6753356a19245c2cb0eec0cbf2900901ddf9e6bf2185cb32e2687cc6815f92"
+let publicKey = "0x50f4b9e3f57150536900ca2c88056fc3c1ca13f44f66fc23bec15e51473fb02"
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {

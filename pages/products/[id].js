@@ -73,12 +73,18 @@ const Product = (props) => {
               <span className="font-semibold">In stock</span>
             </p>
 
+
+        
+           
             {/* Price */}
             <div className="mt-8 border-t pt-4">
-              <p className="text-gray-500">Price:</p>
-              <p className="text-xl font-semibold">
-                {formatCurrency(props.price)}
-              </p>
+              <span className='text-sm text-gray-500'>Price</span>
+              <div className="flex flex-row justify-start items-center space-x-2">
+                <p className="text-xl font-semibold">
+                  {props.price}
+                </p>
+                <img src="/tokens/strk.png" alt="STRK" className="h-4" />
+              </div>
             </div>
 
             <div className="mt-4 border-t pt-4">
@@ -91,7 +97,7 @@ const Product = (props) => {
                   <select
                     id="size"
                     name="size"
-                    className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                    className="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-gray-300 focus:border-gray-300 sm:text-sm rounded-md"
                     value={selectedSize}
                     onChange={(e) => setSelectedSize(e.target.value)}
                   >
@@ -130,7 +136,7 @@ const Product = (props) => {
                 type="button"
                 onClick={handleOnAddToCart}
                 disabled={adding}
-                className="mt-8 border rounded py-2 px-6 bg-rose-500 hover:bg-rose-600 border-rose-500 hover:border-rose-600 focus:ring-4 focus:ring-opacity-50 focus:ring-rose-500 text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="mt-8 border rounded py-2 px-6 bg-black hover:bg-gray-800 border-black hover:border-gray-800 focus:ring-4 focus:ring-opacity-50 focus:ring-black text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Add to cart ({qty})
               </button>

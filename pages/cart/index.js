@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Head from 'next/head';
 import { useShoppingCart } from '@/hooks/use-shopping-cart';
 import axios from 'axios';
-import { formatCurrency } from '@/lib/utils';
 import getStripe from '@/lib/get-stripe';
 import {
   XCircleIcon,
@@ -97,7 +96,8 @@ const Cart = () => {
                   {/* Price */}
                   <p className="font-semibold text-xl">
                     <XIcon className="w-4 h-4 text-gray-500 inline-block" />
-                    {formatCurrency(product.price)}
+                    {product.price}
+                    <img src="/blackStrk.png" alt="STRK" className="h-4 inline-block ml-1" />
                   </p>
 
                   {/* Remove item */}
@@ -115,14 +115,15 @@ const Cart = () => {
               <p className="text-lg sm:text-xl">
                 Total:{' '}
                 <span className="font-semibold">
-                  {formatCurrency(totalPrice)}
+                  {totalPrice}
+                  <img src="/blackStrk.png" alt="STRK" className="h-4 inline-block ml-1" />
                 </span>
               </p>
 
               <button
                 onClick={redirectToCheckout}
                 disabled={redirecting}
-                className="border rounded py-3 px-8 bg-rose-500 hover:bg-rose-600 border-rose-500 hover:border-rose-600 focus:ring-4 focus:ring-opacity-50 focus:ring-rose-500 text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-rose-500 max-w-max mt-4"
+                className="border rounded py-3 px-8 bg-black hover:bg-gray-900 border-black hover:border-gray-900 focus:ring-4 focus:ring-opacity-50 focus:ring-black text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-black max-w-max mt-4"
               >
                 {redirecting ? 'Redirecting...' : 'Go to Checkout'}
               </button>
