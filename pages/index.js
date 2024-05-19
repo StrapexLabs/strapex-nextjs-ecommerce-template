@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ProductCard } from '@/components/index';
 import Link from 'next/link';
-
+import Image from 'next/image';
 import products from 'products';
 
 // Fetch the specific item from products array
@@ -17,10 +17,10 @@ export default function Home() {
       <Link href={`/products/${item.id}`}>
         <div className="col-span-1 h-60 rounded-xl border-2 border-gray-300">
           <div className='flex flex-row h-3/4 p-4 justify-center'>
-            <img src={item.image} alt={item.name} className='h-auto' />
+            <Image src={item.image} alt={item.name} width={125} height={125} />
             <div className='flex flex-col justify-between p-2 space-y-2'>
               {item.images.map((image, index) => (
-                <img key={index} src={image} alt={`${item.name} ${index}`} className='h-1/2 rounded-xl' />
+                <Image key={index} src={image} alt={`${item.name} ${index}`} width={50} height={50} className='h-1/2 rounded-xl' />
               ))}
             </div>
           </div>
@@ -52,7 +52,7 @@ export default function Home() {
               </a>
             </div>
             <div className='w-full h-full flex p-4'>
-              <img src='./get25refund.png' alt='Get 25% Refund' className='h-full w-auto' />
+              <Image src='/get25refund.png' alt='Get 25% Refund' width={200} height={200}  />
             </div>
           </div>
         </div>
