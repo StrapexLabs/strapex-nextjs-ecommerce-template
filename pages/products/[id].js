@@ -60,7 +60,7 @@ const Product = (props) => {
             {/* Main image */}
             <div className="relative w-full h-72 sm:h-96 mb-4 ">
               <ModalImage
-                small={props.image}
+                small={props.imageCompressed}
                 large={props.image}
                 alt={props.name}
                 layout="fill"
@@ -69,11 +69,11 @@ const Product = (props) => {
             </div>
             {/* Additional images below the main image */}
             <div className='flex flex-row w-full overflow-x-auto justify-center'>
-              {props.images?.map((image, index) => (
+              {props.imagesCompressed?.map((image, index) => (
                 <div key={index} className="relative w-24 h-24 sm:w-32 sm:h-32 mr-2 rounded">
                   <ModalImage
                     small={image}
-                    large={image}
+                    large={props.images[index]}
                     alt={`${props.name} ${index}`}
                   />
                 </div>
