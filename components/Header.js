@@ -8,7 +8,7 @@ const Header = () => {
   const { totalPrice, cartCount } = useShoppingCart();
 
   return (
-    <header className="sticky top-0 bg-white z-10 shadow">
+    <header className="sticky top-0 bg-white z-10 ">
       <div className="container xl:max-w-screen-xl mx-auto p-6 sm:px-32 flex justify-between">
         <div className='invisible'>Stark</div>
         <Logo />

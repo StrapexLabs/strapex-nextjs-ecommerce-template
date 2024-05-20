@@ -38,6 +38,7 @@ const products = [
     images: ['/tshirts/starkwolvesCloseUp.png', '/tshirts/starkwolvesLogo.png'],
     quantity: 30,
     sizes: ['S', 'M', 'L', 'XL'],
+    longDescription: 'High quality cotton t-shirt with StarkWolves logo.',
   },
 ];
 
