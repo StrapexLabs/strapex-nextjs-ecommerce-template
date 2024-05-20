@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { toast } from 'react-hot-toast';
 import { useShoppingCart } from '@/hooks/use-shopping-cart';
@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Head from 'next/head';
 import { formatCurrency } from '@/lib/utils';
 import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
-
+import ModalImage from 'react-modal-image';
 import products from 'products';
 
 const Product = (props) => {
@@ -59,8 +59,9 @@ const Product = (props) => {
           <div className='flex flex-col w-96'>
             {/* Main image */}
             <div className="relative w-full h-72 sm:h-96 mb-4 ">
-              <Image
-                src={props.image}
+              <ModalImage
+                small={props.image}
+                large={props.image}
                 alt={props.name}
                 layout="fill"
                 objectFit="contain"
@@ -68,9 +69,13 @@ const Product = (props) => {
             </div>
             {/* Additional images below the main image */}
             <div className='flex flex-row w-full overflow-x-auto justify-center'>
-              {props.images.map((image, index) => (
+              {props.images?.map((image, index) => (
                 <div key={index} className="relative w-24 h-24 sm:w-32 sm:h-32 mr-2 rounded">
-                  <Image src={image} alt={`${props.name} ${index}`} layout="fill" objectFit="contain" />
+                  <ModalImage
+                    small={image}
+                    large={image}
+                    alt={`${props.name} ${index}`}
+                  />
                 </div>
               ))}
             </div>
@@ -155,14 +160,79 @@ const Product = (props) => {
         </div>
       </div>
 
-      {/* Description */}
-      <div className="container lg:max-w-screen-lg mx-auto py-12 px-6">
-        <p>{props.longDescription}</p>
-      </div>
-    </>
-  );
+{/* Description */}
+<div className="container lg:max-w-screen-lg mx-auto py-12 px-6">
+  <p>{props.longDescription}</p>
+  <ul className="list-disc list-inside mt-4">
+    {props.bulletPoints?.map((point, index) => (
+      <li key={index} className="text-gray-700">{point}</li>
+    ))}
+  </ul>
+  {/* Size Chart */}
+  <div className="mt-8">
+    <h2 className="text-xl font-semibold">Size Chart</h2>
+    <table className="table-auto mt-4 w-full text-left">
+      <thead>
+        <tr>
+          <th className="px-4 py-2">SIZE LABEL</th>
+          <th className="px-4 py-2">LENGTH (inches)</th>
+          <th className="px-4 py-2">WIDTH (inches)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="border px-4 py-2">XS</td>
+          <td className="border px-4 py-2">27</td>
+          <td className="border px-4 py-2">16 ½</td>
+        </tr>
+        <tr>
+          <td className="border px-4 py-2">S</td>
+          <td className="border px-4 py-2">28</td>
+          <td className="border px-4 py-2">18</td>
+        </tr>
+        <tr>
+          <td className="border px-4 py-2">M</td>
+          <td className="border px-4 py-2">29</td>
+          <td className="border px-4 py-2">20</td>
+        </tr>
+        <tr>
+          <td className="border px-4 py-2">L</td>
+          <td className="border px-4 py-2">30</td>
+          <td className="border px-4 py-2">22</td>
+        </tr>
+        <tr>
+          <td className="border px-4 py-2">XL</td>
+          <td className="border px-4 py-2">31</td>
+          <td className="border px-4 py-2">24</td>
+        </tr>
+        <tr>
+          <td className="border px-4 py-2">2XL</td>
+          <td className="border px-4 py-2">32</td>
+          <td className="border px-4 py-2">26</td>
+        </tr>
+        <tr>
+          <td className="border px-4 py-2">3XL</td>
+          <td className="border px-4 py-2">33</td>
+          <td className="border px-4 py-2">28</td>
+        </tr>
+        <tr>
+          <td className="border px-4 py-2">4XL</td>
+          <td className="border px-4 py-2">34</td>
+          <td className="border px-4 py-2">30</td>
+        </tr>
+        <tr>
+          <td className="border px-4 py-2">5XL</td>
+          <td className="border px-4 py-2">35</td>
+          <td className="border px-4 py-2">32</td>
+        </tr>
+      </tbody>
+    </table>
+    <p className="mt-2 text-gray-500">Product measurements may vary by up to 2" (5 cm).</p>
+  </div>
+</div>
+</>
+);
 };
-
 export async function getStaticPaths() {
   return {
     // Existing posts are rendered to HTML at build time

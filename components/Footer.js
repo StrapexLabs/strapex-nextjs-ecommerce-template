@@ -15,8 +15,10 @@ const Footer = () => (
       </a>
     </p>
     <a href="mailto:contact@starknetstore.com" className="text-gray-500 hover:text-current">contact@starknetstore.com</a>
-
-    <p className="text-gray-500 mt-4">&copy; StarknetStore 2024</p>
+    <a href="https://x.com/starknetstore" className='flex items-center justify-center' >
+      <img src="/twitter.svg" alt="X" width={20} height={20} />
+    </a>
+    <p className="text-gray-500 mt-4">&copy; StarknetStore 2024 <br/>Disclaimer: This store is not affiliated with official Starknet brand</p>
   </footer>
 );
 

@@ -34,11 +34,12 @@ const products = [
     description: '30 Units | 100% Cotton | 100% Starknet',
     price: 1,
     currency: 'STRK',
-    image: '/tshirts/starkwolves.png',
-    images: ['/tshirts/starkwolvesCloseUp.png', '/tshirts/starkwolvesLogo.png'],
+    image: '/tshirts/v2/starkwolves.png',
+    images: ['/tshirts/v2/starkwolvesGym.png', '/tshirts/v2/starkwolvesBordedLogo.png', '/tshirts/v2/starwovesFolded.png'],
     quantity: 30,
-    sizes: ['S', 'M', 'L', 'XL'],
-    longDescription: 'High quality cotton t-shirt with StarkWolves logo.',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL'],
+    longDescription: 'In celebration of the store launch in collaboration with Strapex we are releasing 100% high quality StarkWolves t-shirts. With a unique embroidered logo on the front.',
+    bulletPoints: ['100% cotton', '100% Starknet', 'Embroidered logo on the front', '30 units', 'Worldwide FREE shipping'],
   },
 ];
 
