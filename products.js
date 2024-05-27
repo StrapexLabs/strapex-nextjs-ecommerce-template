@@ -1,33 +1,4 @@
 const products = [
-  /*
-  {
-    id: 'price_1NyG5TBVp8j6hztqyh4VsGlN',
-    name: 'Kentiapalm (L)',
-    price: 39.95,
-    currency: 'USD',
-    image: '/plants/kentiapalm.png',
-    rating: { count: 85, rate: 4.5 },
-    sizes: ['S', 'M', 'L'],
-  },
-  {
-    id: 'price_1NyG6qBVp8j6hztqq0XQgMmJ',
-    name: 'Monstera Deliciosa (L)',
-    price: 59.95,
-    currency: 'USD',
-    image: '/plants/monstera-deliciosa.png',
-    rating: { count: 137, rate: 4.5 },
-    sizes: ['M', 'L', 'XL'],
-  },
-  {
-    id: 'price_1NyG7pBVp8j6hztq0LUyB9t1',
-    name: 'Alocasia Zebrina',
-    price: 29.95,
-    currency: 'USD',
-    image: '/plants/alocasia-zebrina.png',
-    rating: { count: 104, rate: 4 },
-    sizes: ['S', 'M'],
-  },
-  */
   {
     id: 'starkwolves_312',
     name: 'StarkWolves Limited Edition',
@@ -43,7 +14,25 @@ const products = [
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL'],
     longDescription: 'In celebration of the store launch in collaboration with Strapex we are releasing 100% high quality StarkWolves t-shirts. With a unique embroidered logo on the front.',
     bulletPoints: ['100% cotton', '100% Starknet', 'Embroidered logo on the front', '30 units', 'Worldwide FREE shipping'],
+    shippingRequired: true,
   },
+  {
+    id: 'donation',
+    name: 'Donation',
+    description: 'Donation',
+    price: 1,
+    currency: 'STRK',
+    image: '/tshirts/v2/starkwolves.png',
+    imageCompressed: '/tshirts/v2/compressed/starkwolves.webp',
+    images: [],
+    imagesCompressed: [],
+    quantity: 0,
+    itemsLeft: 0,
+    sizes: [],
+    longDescription: '',
+    bulletPoints: [],
+    shippingRequired: false,
+  }
 ];
 
 export default products;

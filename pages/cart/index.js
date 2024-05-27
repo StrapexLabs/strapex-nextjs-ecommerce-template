@@ -22,13 +22,14 @@ const Cart = () => {
     const {
       data: { id },
     } = await axios.post('/api/checkout_sessions', {
-      items: Object.entries(cartDetails).map(([_, { id, quantity, name, price, currency, size }]) => ({
+      items: Object.entries(cartDetails).map(([_, { id, quantity, name, price, currency, size, shippingRequired }]) => ({
         price: id,
         quantity,
         name,
         price,
         currency,
         size,
+        shippingRequired
       })),
     });
 
