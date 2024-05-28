@@ -19,13 +19,19 @@ const Product = (props) => {
   const toastId = useRef();
   const firstRun = useRef(true);
 
-  const handleOnAddToCart = () => {
+  const handleOnAddToCart = async () => {
     setAdding(true);
     console.log('Adding', qty, props.name, selectedSize);
     toastId.current = toast.loading(
       `Adding ${qty} item${qty > 1 ? 's' : ''}...`
     );
     addItem({ ...props, size: selectedSize }, qty, selectedSize);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    toast.success(`${qty} ${props.name} (${selectedSize}) added`, {
+      id: toastId.current,
+    });
+    console.log('SetAdding', adding);
   };
 
   useEffect(() => {

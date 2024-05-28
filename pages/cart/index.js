@@ -11,6 +11,7 @@ import {
   MinusSmIcon,
   PlusSmIcon,
 } from '@heroicons/react/outline';
+import { Button, Spinner, BookmarkIcon } from '@radix-ui/themes';
 
 const Cart = () => {
   const { cartDetails, totalPrice, cartCount, addItem, removeItem, clearCart } =
@@ -18,6 +19,7 @@ const Cart = () => {
   const [redirecting, setRedirecting] = useState(false);
 
   const redirectToCheckout = async () => {
+    setRedirecting(true);
     // Create Stripe checkout
     const {
       data: { id },
@@ -37,6 +39,7 @@ const Cart = () => {
     console.log('Redirecting to checkout session:', id);
     const rootUrl = process.env.NEXT_PUBLIC_ENVIRONMENT === 'production' ? 'https://pay.strapex.org' : 'http://localhost:3001';
     window.location.href = `${rootUrl}/p/${id}`;
+    setRedirecting(false);
   };
 
   return (
@@ -121,13 +124,16 @@ const Cart = () => {
                 </span>
               </p>
 
-              <button
+
+              
+              <Button
                 onClick={redirectToCheckout}
                 disabled={redirecting}
-                className="border rounded py-3 px-8 bg-black hover:bg-gray-900 border-black hover:border-gray-900 focus:ring-4 focus:ring-opacity-50 focus:ring-black text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-black max-w-max mt-4"
+                loading={redirecting}
+                className={`border rounded py-3 px-8 bg-black hover:bg-gray-900 border-black hover:border-gray-900 focus:ring-4 focus:ring-opacity-50 focus:ring-black text-white transition-colors disabled:cursor-not-allowed max-w-max mt-4 ${redirecting ? 'animate-pulse' : ''}`}
               >
-                {redirecting ? 'Redirecting...' : 'Go to Checkout'}
-              </button>
+                Go to Checkout
+              </Button>
             </div>
           </div>
         ) : null}
