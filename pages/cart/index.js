@@ -11,7 +11,8 @@ import {
   MinusSmIcon,
   PlusSmIcon,
 } from '@heroicons/react/outline';
-import { Button, Spinner, BookmarkIcon } from '@radix-ui/themes';
+import { Button } from '@radix-ui/themes';
+import { GlobeIcon } from '@radix-ui/react-icons';
 
 const Cart = () => {
   const { cartDetails, totalPrice, cartCount, addItem, removeItem, clearCart } =
@@ -123,9 +124,12 @@ const Cart = () => {
                   <img src="/blackStrk.png" alt="STRK" className="h-4 inline-block ml-1" />
                 </span>
               </p>
+              {/* Free Shipping Message */}
+              <p className="text-green-600 font-semibold mt-2 flex items-center">
+                <GlobeIcon className="w-5 h-5 mr-2" />
+                Free worldwide shipping 
+              </p>
 
-
-              
               <Button
                 onClick={redirectToCheckout}
                 disabled={redirecting}
