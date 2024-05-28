@@ -20,7 +20,7 @@ const products = [
     id: 'donation',
     name: 'Donation',
     description: 'Donation',
-    price: 1,
+    price: 0.5,
     currency: 'STRK',
     image: '/StarkWolveCoin.png',
     imageCompressed: '/StarkWolveCoin.png',
