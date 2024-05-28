@@ -210,8 +210,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   try {
-    const props = products?.find(product => product.id === params.id) ?? {};
-
+    const product = products.find(product => product.id === params.id);
+    const props = {
+      ...product,
+      imagesCompressed: product.imagesCompressed || []
+    };
     return {
       props,
       // Next.js will attempt to re-generate the page:
