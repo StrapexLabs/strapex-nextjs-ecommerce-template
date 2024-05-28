@@ -169,66 +169,30 @@ const Product = (props) => {
     ))}
   </ul>
   {/* Size Chart */}
-  <div className="mt-8">
-    <h2 className="text-xl font-semibold">Size Chart</h2>
-    <table className="table-auto mt-4 w-full text-left">
-      <thead>
-        <tr>
-          <th className="px-4 py-2">SIZE LABEL</th>
-          <th className="px-4 py-2">LENGTH (inches)</th>
-          <th className="px-4 py-2">WIDTH (inches)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="border px-4 py-2">XS</td>
-          <td className="border px-4 py-2">27</td>
-          <td className="border px-4 py-2">16 ½</td>
-        </tr>
-        <tr>
-          <td className="border px-4 py-2">S</td>
-          <td className="border px-4 py-2">28</td>
-          <td className="border px-4 py-2">18</td>
-        </tr>
-        <tr>
-          <td className="border px-4 py-2">M</td>
-          <td className="border px-4 py-2">29</td>
-          <td className="border px-4 py-2">20</td>
-        </tr>
-        <tr>
-          <td className="border px-4 py-2">L</td>
-          <td className="border px-4 py-2">30</td>
-          <td className="border px-4 py-2">22</td>
-        </tr>
-        <tr>
-          <td className="border px-4 py-2">XL</td>
-          <td className="border px-4 py-2">31</td>
-          <td className="border px-4 py-2">24</td>
-        </tr>
-        <tr>
-          <td className="border px-4 py-2">2XL</td>
-          <td className="border px-4 py-2">32</td>
-          <td className="border px-4 py-2">26</td>
-        </tr>
-        <tr>
-          <td className="border px-4 py-2">3XL</td>
-          <td className="border px-4 py-2">33</td>
-          <td className="border px-4 py-2">28</td>
-        </tr>
-        <tr>
-          <td className="border px-4 py-2">4XL</td>
-          <td className="border px-4 py-2">34</td>
-          <td className="border px-4 py-2">30</td>
-        </tr>
-        <tr>
-          <td className="border px-4 py-2">5XL</td>
-          <td className="border px-4 py-2">35</td>
-          <td className="border px-4 py-2">32</td>
-        </tr>
-      </tbody>
-    </table>
-    <p className="mt-2 text-gray-500">Product measurements may vary by up to 2" (5 cm).</p>
-  </div>
+  {props.id !== 'donation' && (
+    <div className="mt-8">
+      <h2 className="text-xl font-semibold">Size Chart</h2>
+      <table className="table-auto mt-4 w-full text-left">
+        <thead>
+          <tr>
+            <th className="px-4 py-2">SIZE LABEL</th>
+            <th className="px-4 py-2">LENGTH (inches)</th>
+            <th className="px-4 py-2">WIDTH (inches)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {props.sizes.map((size, index) => (
+            <tr key={index}>
+              <td className="border px-4 py-2">{size}</td>
+              <td className="border px-4 py-2">{size.length}</td>
+              <td className="border px-4 py-2">{size.width}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p className="mt-2 text-gray-500">Product measurements may vary by up to 2" (5 cm).</p>
+    </div>
+  )}
 </div>
 </>
 );

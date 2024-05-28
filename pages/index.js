@@ -7,6 +7,7 @@ import { Button } from '@radix-ui/themes';
 
 // Fetch the specific item from products array
 const item = products.find(product => product.id === 'starkwolves_312');
+const donationItem = products.find(product => product.id === 'donation');
 
 export default function Home() {
   const [disabled, setDisabled] = useState(false);
@@ -36,9 +37,9 @@ export default function Home() {
           <div className='flex flex-col sm:flex-row h-full'>
             <div className='flex flex-col sm:justify-between text-white p-8 flex-grow'>
               <h1 className='text-2xl font-bold'> Get a 25% Refund </h1>
-              <p className='text-sm'> Celebrating the launch of our Store
-                we have partnered with Strapex in exchange
-                of feedback </p>
+              <p className='text-sm'> Celebrating the launch of our Store,
+                we have partnered with Strapex to sponsor a 25% refund for
+                 your StarkWolves tshirt purchase in exchange of your feedback. </p>
               <a href='#' className=''>
                 <button className='bg-white text-black rounded-lg p-2 hidden'>
                   Learn More
@@ -79,6 +80,25 @@ export default function Home() {
             </div>
             <img src='./collab.png' alt='StarknetStore collab with strapex' className='h-[55px] w-[80px]' />
           </div>
+        </div>
+        <div className="col-span-1  h-60 rounded-xl">
+        <Link href={`/products/${donationItem.id}`}>
+          <div className="col-span-1 h-60 rounded-xl border-2 border-gray-300">
+            <div className='flex flex-row h-3/4 p-4 justify-center'>
+              <Image src={donationItem.image} alt={donationItem.name} width={150} height={125} />
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="font-bold text-xs">{donationItem.name}</div>
+              <div className='text-xs'>{donationItem.description}</div>
+              <div className='flex items-center space-x-2'>
+                <div className='flex items-center space-x-1'>
+                  <div className='font-bold'>{donationItem.price}</div>
+                  <img src='./tokens/strk.png' alt={donationItem.currency} className='h-4' />
+                </div>
+              </div>
+            </div>
+          </div>
+        </Link>
         </div>
       </div>
     </div>
