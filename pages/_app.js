@@ -13,18 +13,20 @@ function MyApp({ Component, pageProps }) {
         </title>
         <meta
           name="description"
-          content="E-commerce store built with Next.js and Stripe checkout by Gabriel"
+          content="Starknet Store"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <CartProvider>
-        <div className="min-h-screen flex flex-col">
+        <body className="min-h-screen flex flex-col">
           <Header />
           <main className="flex-grow">
             <Component {...pageProps} />
           </main>
           <Footer />
-        </div>
+          <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+        </body>
       </CartProvider>
       <Toaster />
       <CookieConsent
