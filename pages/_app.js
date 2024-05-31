@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }) {
           name="description"
           content="Starknet Store"
         />
+        {/* */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <CartProvider>
