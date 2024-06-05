@@ -19,9 +19,13 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content="Starknet Store" />
         <meta property="og:description" content="Starknet Store" />
-        <meta property="og:image" content="./StarknetStore.png" />
+        <meta property="og:image" content="https://starknetstore.com/StarknetStore.png" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://starknetstore.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Starknet Store" />
+        <meta name="twitter:description" content="Starknet Store" />
+        <meta name="twitter:image" content="https://starknetstore.com/StarknetStore.png" />
 
       </Head>
       <CartProvider>
