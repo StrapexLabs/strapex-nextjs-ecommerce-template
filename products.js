@@ -3,7 +3,7 @@ const products = [
     id: 'starkwolves_312',
     name: 'StarkWolves Limited Edition',
     description: '30 Units | 100% Cotton | 100% Starknet',
-    price: 34.99,
+    price: 29.99,
     currency: 'STRK',
     image: '/tshirts/v2/starkwolves.png',
     imageCompressed: '/tshirts/v2/compressed/starkwolves.webp',
