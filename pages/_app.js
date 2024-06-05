@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
         />
         {/* */}
         <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content="E-commerce store built with Next.js and Stripe checkout" />
+        <meta property="og:title" content="Starknet Store" />
         <meta property="og:description" content="Starknet Store" />
         <meta property="og:image" content="./StarknetStore.png" />
         <meta property="og:type" content="website" />
