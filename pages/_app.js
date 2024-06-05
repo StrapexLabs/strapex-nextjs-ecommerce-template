@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>
-          E-commerce store built with Next.js and Stripe checkout
+          Starknet Merch Store
         </title>
         <meta
           name="description"
@@ -17,6 +17,12 @@ function MyApp({ Component, pageProps }) {
         />
         {/* */}
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:title" content="E-commerce store built with Next.js and Stripe checkout" />
+        <meta property="og:description" content="Starknet Store" />
+        <meta property="og:image" content="./StarknetStore.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://starknetstore.com" />
+
       </Head>
       <CartProvider>
         <body className="min-h-screen flex flex-col">
