@@ -36,10 +36,8 @@ export default function Home() {
         <div className="col-span-1 sm:col-span-2 bg-blue-500 sm:h-60 rounded-xl">
           <div className='flex flex-col sm:flex-row h-full'>
             <div className='flex flex-col sm:justify-between text-white p-8 flex-grow'>
-              <h1 className='text-2xl font-bold'> Get a 25% Refund </h1>
-              <p className='text-sm'> Celebrating the launch of our Store,
-                we have partnered with Strapex to sponsor a 25% refund for
-                 your StarkWolves tshirt purchase in exchange of your feedback. </p>
+              <h1 className='text-2xl font-bold'> Enjoy a 25% Refund! </h1>
+              <p className='text-sm'> To celebrate our store's launch, we've teamed up with Strapex to offer you a 25% refund on your StarkWolves T-shirt purchase. All we ask in return is your valuable feedback on the checkout process. </p>
               <a href='#' className=''>
                 <button className='bg-white text-black rounded-lg p-2 hidden'>
                   Learn More
