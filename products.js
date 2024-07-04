@@ -13,7 +13,14 @@ const products = [
     itemsLeft: 25,
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL'],
     longDescription: 'In celebration of the store launch in collaboration with Strapex we are releasing 100% high quality StarkWolves t-shirts. With a unique embroidered logo on the front.',
-    bulletPoints: ['100% cotton', '100% Starknet', 'Embroidered logo on the front', '30 units', 'Worldwide FREE shipping'],
+    bulletPoints: [
+      '100% cotton',
+      '100% Starknet',
+      'Embroidered logo on the front',
+      '30 units',
+      'Worldwide FREE shipping',
+      'Please note: We cannot guarantee full quality of the embroidered patch'
+    ],
     shippingRequired: true,
   },
   {
