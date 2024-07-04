@@ -91,7 +91,7 @@ const Product = (props) => {
             <h2 className="text-3xl font-semibold">{props.name}</h2>
             <p>
               <span className="text-gray-500">Availability:</span>{' '}
-              <span className="font-semibold">In stock</span>
+              <span className="font-semibold">24 units left</span>
             </p>
             
 
